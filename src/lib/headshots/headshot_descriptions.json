@@ -1,0 +1,46 @@
+[
+  {
+    "position": "Faculty",
+    "members": [
+      {
+        "name": "Dr. Fu",
+        "title": "Advisor",
+        "description": "",
+        "image": "shengli_fu.webp"
+      },
+      {
+        "name": "Angus Mccoll",
+        "title": "Development Director",
+        "description": "",
+        "image": "angus_mccoll.webp"
+      }
+    ]
+  },
+  {
+    "position": "Officers",
+    "members": [
+      {
+        "name": "Mario",
+        "title": "President",
+        "description": "I dream of drones every day",
+        "image": "mario.webp"
+      },
+      {
+        "name": "Matthew Moriarty",
+        "title": "Operations Manager",
+        "description": "I left my wife for drones",
+        "image": "matthew.webp"
+      },
+      {
+        "name": "Travis",
+        "title": "Research Manager",
+        "description": "I love drones!",
+        "image": "travis.webp"
+      }
+    ]
+  },
+  {
+    "position": "Members",
+    "members": []
+  }
+]

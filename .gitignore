@@ -1,0 +1,9 @@
+# NPM
+/build
+/node_modules
+
+# Stupid mac thing
+/.DS_Store
+
+# Sveltekit build temps
+.svelte-kit/
