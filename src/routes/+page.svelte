@@ -15,7 +15,6 @@
   import { SplitText } from 'gsap/SplitText';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   import ProjectPreview from '$lib/components/ProjectPreview.svelte';
-  import HeroParticles from '$lib/components/HeroParticles.svelte';
 
   // 3d Models
   import Crazyflie from '$lib/assets/3d/Crazyflie.svelte';
@@ -81,11 +80,6 @@
 	<div class="heroImage absolute inset-0 scale-106">
 		<HeroImage />
 	</div>
-
-  <!-- PARTICLES -->
-  <div class="relative z-10 w-screen h-screen">
-    <HeroParticles />
-  </div>
 
   <!-- BLACK SCREEN -->
   <div class="z-50 heroBlack absolute inset-0 w-screen h-screen bg-black"></div>
