@@ -13,7 +13,7 @@ Command: npx @threlte/gltf@3.0.1 .\crazyflie1.gltf
 
 	ref = new Group();
 
-	const gltf = useGltf('/src/lib/assets/3d/crazyflie.glb');
+	const gltf = useGltf('/3d/crazyflie.glb');
 
 	export const { actions, mixer } = useGltfAnimations(gltf, ref);
 

@@ -9,7 +9,7 @@ Command: npx @threlte/gltf@3.0.1 .\stingray.glb
 
   let { fallback, error, children, ref = $bindable(), ...props } = $props()
 
-  const gltf = useGltf('src/lib/assets/3d/stingray.glb')
+  const gltf = useGltf('3d/stingray.glb')
 
   //Animation
   let propRotation = $state(0);
