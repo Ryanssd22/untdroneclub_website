@@ -21,27 +21,33 @@
   import { gsap } from 'gsap';
 	let pathname = $derived(page.url.pathname);
 
+  // Global variables
+  import { navBarSettings } from '$lib/components/navbarSettings.svelte.js';
+
   // Animation
-  let visible = $state(false);
   onMount(() => {
     if (pathname == '/') {
-      gsap.fromTo(".navBar", {opacity: 0, y: -40 }, {y:0, opacity: 1, duration: 1, delay: 0.5, ease: 'expo.out'});
+      gsap.fromTo(".navBar", {opacity: 0, y: -40 }, {y:0, opacity: 1, duration: 1, delay: 0.5, ease: 'expo.out', onComplete: () => {
+        navBarSettings.ready = true;
+      }});
+    } else {
+      navBarSettings.ready = true;
     }
-    visible = true;
   })
 
 	let scrollY = $state(0);
-	let altNavbar = $derived.by(() => {
+  $effect(() => {
 		if (pathname == '/') {
 			if (scrollY < 200) {
-				return false;
+        // navBarSettings.clear = true;
 			} else {
-				return true;
+        navBarSettings.clear = false;
 			}
 		} else {
-			return true;
+      navBarSettings.clear = false;
 		}
-	});
+  })
+	let altNavbar = $derived(!navBarSettings.clear);
 
 	let navigating = $state(false);
 	beforeNavigate(() => {
@@ -65,7 +71,7 @@
 	class:duration-250={!navigating}
 	class:duration-0={navigating}
 	class:bg-black={altNavbar}
-  class:opacity-0={pathname == '/' && !visible}
+  class:opacity-0={pathname == '/'}
 >
 	<!-- LEFT ALIGNED NAVIGATION-->
 	<div class="mx-8 flex h-full flex-row items-center gap-8">
