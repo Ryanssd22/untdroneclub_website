@@ -18,7 +18,7 @@
   let loader = null, promise = $state(null);
   onMount(() => {
     loader = new HDRLoader();
-    promise = loader.loadAsync('src/lib/assets/3d/lilienstein_4k.hdr').then((texture) => {
+    promise = loader.loadAsync('3d/lilienstein_4k.hdr').then((texture) => {
       texture.mapping = EquirectangularReflectionMapping;
       return texture;
     });
