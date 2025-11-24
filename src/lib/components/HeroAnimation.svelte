@@ -48,12 +48,16 @@
 
   $inspect("RATIO:", screenRatio);
 
+  // DEMOING:
+  let DEMO = $state(2);
+
 </script>
 
 <!-- SCREEN WIDTH & HEIGHT-->
 <svelte:window bind:innerWidth={screenWidth} bind:innerHeight={screenHeight} />
 
-<div class="relative bg-white w-screen h-screen">
+<div class="absolute bg-white w-screen h-screen">
+  {#if DEMO == 1}
   <!-- HERO IMAGE -->
   <!-- <div class="absolute inset-0 z-10"> -->
   <!--   <HeroImage /> -->
@@ -93,13 +97,50 @@
       {#await promise then texture}
         <Environment {texture} />
       {/await}
+      <T.AmbientLight intensity={0.5} />
 
       <!-- CAMERA -->
       <T.PerspectiveCamera makeDefault position={[45,10,90]} fov={18}>
-        <OrbitControls target={[0,djiY.current,0]} autoRotate autoRotateSpeed={0} enablePan={false} enableZoom={false} enableRotate={false}/>
+        <OrbitControls target={[0,djiY.current,0]} autoRotate autoRotateSpeed={0} enablePan={false} enableZoom={false} enableRotate={true}/>
       </T.PerspectiveCamera>
 
     </Canvas>
   </div>
+
+  {:else if DEMO == 2}
+  <!-- TITLE -->
+  <div class="relative w-1/2 h-full -bottom-20 py-4 mx-4">
+    <h1 class="font-[Bronzier] font-bold text-8xl tracking-[4px]">UNT Drone Club</h1>
+    <p class="italic px-1">University of North Texas | College of Engineering </p>
+  </div>
+
+  <!-- 3D MODEL  -->
+  <div class="z-10 absolute inset-0 w-screen h-screen">
+    <Canvas>
+      {#if navBarSettings.ready}
+        <!-- Drone model -->
+        <!-- <Dji position={[0, djiY.current, 0]} /> -->
+        <DjiLess scale={djiScale * 0.9} position={[0, djiY.current, 0]}/>
+
+        <!-- Ground Plane -->
+        <Grid infiniteGrid cellSize={5} sectionColor="#000000" fadeOrigin={[0,0,0]} fadeDistance={djiScale*30} />
+      {/if}
+
+
+      <!-- Environment texture -->
+      <!-- <Environment url="src/lib/assets/3d/lilienstein_4k.hdr" bind:skybox {ground} /> -->
+      {#await promise then texture}
+        <Environment {texture} />
+      {/await}
+      <T.AmbientLight intensity={0.5} />
+
+      <!-- CAMERA -->
+      <T.PerspectiveCamera makeDefault position={[85,5,0]} fov={18}>
+        <OrbitControls target={[0,djiY.current,0]} autoRotate autoRotateSpeed={0} enablePan={false} enableZoom={false} enableRotate={true}/>
+      </T.PerspectiveCamera>
+
+    </Canvas>
+  </div>
+  {/if}
 </div>
 
