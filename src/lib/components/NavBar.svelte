@@ -27,7 +27,7 @@
   // Animation
   onMount(() => {
     if (pathname == '/') {
-      gsap.fromTo(".navBar", {opacity: 0, y: -40 }, {y:0, opacity: 1, duration: 1, delay: 0.5, ease: 'expo.out', onComplete: () => {
+      gsap.fromTo(".navBar", {opacity: 0, y: -40 }, {y:0, opacity: 1, duration: 1, ease: 'expo.out', onComplete: () => {
         navBarSettings.ready = true;
       }});
     } else {

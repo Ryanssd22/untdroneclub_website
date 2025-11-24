@@ -14,8 +14,8 @@ Command: npx @threlte/gltf@3.0.1 .\dji.glb --transform
   ref = new Group()
 
   const dracoLoader = useDraco();
-  // const gltf = useGltf('3d/dji-transformed.glb', {dracoLoader})
-  const gltf = useGltf('3d/dji.glb', {dracoLoader})
+  const gltf = useGltf('3d/dji-transformed.glb', {dracoLoader})
+  // const gltf = useGltf('3d/dji.glb', {dracoLoader})
 
   export const { actions, mixer } = useGltfAnimations(gltf, ref)
 

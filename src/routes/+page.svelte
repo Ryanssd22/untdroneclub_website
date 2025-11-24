@@ -138,19 +138,19 @@
     
     <!-- PROJECTS -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:mx-10">
-      <!-- <ProjectPreview Model={Crazyflie} type="3d" title="Crazyflie" subtitle="Bitcraze" description="A palm-sized research quadcopter with a powerful, modular feature set"/> -->
-      <!-- <ProjectPreview Model={Stingray} type="3d" title="Stingray" subtitle="idk lol" description="Matthew's finest work"/> -->
-      <!-- <ProjectPreview title="World Record Drone" subtitle="Maybe" description="This guy goes faster than the speed limit"/> -->
+      <ProjectPreview Model={Crazyflie} type="3d" title="Crazyflie" subtitle="Bitcraze" description="A palm-sized research quadcopter with a powerful, modular feature set"/>
+      <ProjectPreview Model={Stingray} type="3d" title="Stingray" subtitle="idk lol" description="Matthew's finest work"/>
+      <ProjectPreview title="World Record Drone" subtitle="Maybe" description="This guy goes faster than the speed limit"/>
       <ProjectPreview type="placeholder"/>
     </div>
   </div>
 
   <!-- CREW CAROUSEL -->
-  <!-- <div class="items-center flex flex-col justify-center"> -->
-  <!--   <h2>Our crew</h2> -->
-  <!--   <p>Couldn't have done it without you</p> -->
-  <!--   <CrewCarousel /> -->
-  <!-- </div> -->
+  <div class="items-center flex flex-col justify-center">
+    <h2>Our crew</h2>
+    <p>Couldn't have done it without you</p>
+    <CrewCarousel />
+  </div>
 </div>
 
 <style>
