@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Crazyflie",
+    "subtitle": "Bitcraze",
+    "description": "A palm-sized research quadcopter with a powerful, modular feature set",
+    "preview": "Crazyflie.svelte",
+    "previewType": "3D",
+    "href": "/projects/crazyflie"
+  },
+  {
+    "title": "Stingray",
+    "subtitle": "Matthew's finest work",
+    "description": "Idk if it's working lol",
+    "preview": "Stingray.svelte",
+    "previewType": "3D",
+    "href": "/projects/crazyflie"
+  },
+  {
+    "title": "World Record Drone",
+    "subtitle": "In the Guiness Book of 'Yeah Right'",
+    "description": "Idk if it's working lol",
+    "preview": "WorldRecord.png",
+    "previewType": "IMG",
+    "href": "/projects/worldRecord"
+  },
+  {
+    "title": "Drone Club Website",
+    "subtitle": "",
+    "description": "Idk if it's working lol",
+    "preview": "websitePreview.png",
+    "previewType": "IMG",
+    "href": "/projects/website"
+  }
+]

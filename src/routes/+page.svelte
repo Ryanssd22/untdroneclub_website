@@ -14,14 +14,14 @@
   import { gsap } from 'gsap';
   import { SplitText } from 'gsap/SplitText';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  import ProjectPreview from '$lib/components/ProjectPreview.svelte';
-  import HeroAnimation from '$lib/components/HeroAnimation.svelte';
+  import ProjectPreview from '$lib/projects/ProjectPreview.svelte';
+  import HeroAnimation from '$lib/components/hero/HeroAnimation.svelte';
   let { data } = $props();
   let { navbarReady } = data;
 
   // 3d Models
-  import Crazyflie from '$lib/assets/3d/Crazyflie.svelte';
-  import Stingray from '$lib/assets/3d/Stingray.svelte';
+  import Crazyflie from '$lib/projects/previews/Crazyflie.svelte';
+  import Stingray from '$lib/projects/previews/Stingray.svelte';
 
   //Icons
 
@@ -137,7 +137,7 @@
     </div>
     
     <!-- PROJECTS -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:mx-10">
+    <div class="grid grid-cols-1 projsm:grid-cols-2 projmd:grid-cols-3 gap-4 sm:mx-10">
       <ProjectPreview Model={Crazyflie} type="3d" title="Crazyflie" subtitle="Bitcraze" description="A palm-sized research quadcopter with a powerful, modular feature set"/>
       <ProjectPreview Model={Stingray} type="3d" title="Stingray" subtitle="idk lol" description="Matthew's finest work"/>
       <ProjectPreview title="World Record Drone" subtitle="Maybe" description="This guy goes faster than the speed limit"/>

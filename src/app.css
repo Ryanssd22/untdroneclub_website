@@ -12,3 +12,15 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+@theme {
+  /* UNT THEMES */
+  --color-unt-green: #059033;
+  --color-unt-neon: #00ff00;
+  --color-unt-dark-gray: #4d4d4f;
+  --color-unt-light-gray: #dcddde;
+
+  /* PROJECTS BREAKPOINT */
+  --breakpoint-projsm: 53rem;
+  --breakpoint-projmd: 80rem;
+}

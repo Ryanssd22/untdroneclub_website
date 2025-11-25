@@ -66,12 +66,12 @@
 
 <!-- MAIN NAVBAR DISPLAY -->
 <div
-	class="navBar fixed z-50 flex h-20 w-full flex-row items-center justify-between border-b-1 border-b-white/30 py-2 text-white shadow-xl
-  backdrop-blur-xs transition-colors"
+	class="navBar fixed z-50 flex h-20 w-full flex-row items-center justify-between border-b-1 border-b-white/30 py-2 shadow-xl
+  backdrop-blur-xs transition-colors duration-300 text-white"
 	class:duration-250={!navigating}
 	class:duration-0={navigating}
 	class:bg-black={altNavbar}
-  class:opacity-0={pathname == '/'}
+  class:opacity-0={pathname == '/' && navBarSettings.ready != true}
 >
 	<!-- LEFT ALIGNED NAVIGATION-->
 	<div class="mx-8 flex h-full flex-row items-center gap-8">

@@ -7,24 +7,33 @@ Command: npx @threlte/gltf@3.0.1 .\dji_less.glb --transform
   import { Group } from 'three'
 
   import { T } from '@threlte/core'
-  import { useGltf, useGltfAnimations, useDraco } from '@threlte/extras'
+  import { useGltf, useGltfAnimations, useDraco, useSuspense } from '@threlte/extras'
+  import { heroSettings } from '$lib/components/hero/heroSettings.svelte.js';
 
   let { fallback, error, children, ref = $bindable(), ...props } = $props()
 
   ref = new Group()
 
   const dracoLoader = useDraco();
-  const gltf = useGltf('3d/dji_less-transformed.glb', {dracoLoader})
+  const suspend = useSuspense();
+  const gltf = useGltf('3d/dji_less-transformed.glb', {dracoLoader});
+  gltf.then(() => {
+    console.log("DJI loaded");
+    heroSettings.ready = true;
+  })
 
   export const { actions, mixer } = useGltfAnimations(gltf, ref)
 
   //Animation
   $effect(() => {
-    $actions["TR-Spin"]?.play();
-    $actions["TL-Spin"]?.play();
-    $actions["BL-Spin"]?.play();
-    $actions["BR-Spin"]?.play();
+    if (heroSettings.ready) {
+      $actions["TR-Spin"]?.play();
+      $actions["TL-Spin"]?.play();
+      $actions["BL-Spin"]?.play();
+      $actions["BR-Spin"]?.play();
+    }
   })
+
 
 </script>
 
