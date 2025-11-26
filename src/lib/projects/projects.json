@@ -19,7 +19,7 @@
     "title": "World Record Drone",
     "subtitle": "In the Guiness Book of 'Yeah Right'",
     "description": "Idk if it's working lol",
-    "preview": "WorldRecord.png",
+    "preview": "WorldRecord",
     "previewType": "IMG",
     "href": "/projects/worldRecord"
   },
@@ -27,7 +27,7 @@
     "title": "Drone Club Website",
     "subtitle": "",
     "description": "Idk if it's working lol",
-    "preview": "websitePreview.png",
+    "preview": "websitePreview",
     "previewType": "IMG",
     "href": "/projects/website"
   }

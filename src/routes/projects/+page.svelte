@@ -30,14 +30,13 @@
 
   // Importing previews 
   const previews = import.meta.glob('$lib/projects/previews/*.svelte');
-  let loadedPreviews = {}; // Filled with preview promises
+  let loadedPreviews = $state({}); // Filled with preview promises
   onMount(async () => {
     for (const preview in previews) {
       const trimmedPreviewPath = preview.replace('/src/lib/projects/previews/', '');
       loadedPreviews[trimmedPreviewPath] = previews[preview];
       // loadedPreviews = previews[preview]();
     } 
-    console.log(loadedPreviews);
   })
 </script>
 
@@ -53,11 +52,14 @@
       {#each projects as project (project.preview)}
         <!-- Await import of preview -->
         {#if project.previewType == "3D"}
-          {#await import(`./src/lib/projects/previews/${project.preview}`) }
-            <ProjectPreview type="preview" />
-          {:then { default: Preview }}
-            <ProjectPreview href={project.href} title={project.title} subtitle={project.subtitle} description={project.description} {Preview} type="3D" />
-          {/await}
+          {#if loadedPreviews[project.preview]}
+            <!-- {#await import(`/src/lib/projects/previews/${project.preview}.svelte`) } -->
+            {#await loadedPreviews[project.preview]()}
+              <ProjectPreview type="preview" />
+            {:then { default: Preview }}
+              <ProjectPreview href={project.href} title={project.title} subtitle={project.subtitle} description={project.description} {Preview} type="3D" />
+            {/await}
+          {/if}
         {:else if project.previewType == "IMG"}
           <ProjectPreview href={project.href} title={project.title} subtitle={project.subtitle} description={project.description} />
         {/if}
