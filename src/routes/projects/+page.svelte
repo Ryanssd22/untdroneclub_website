@@ -53,7 +53,7 @@
       {#each projects as project (project.preview)}
         <!-- Await import of preview -->
         {#if project.previewType == "3D"}
-          {#await import(`/src/lib/projects/previews/${project.preview}`) }
+          {#await import(`./src/lib/projects/previews/${project.preview}`) }
             <ProjectPreview type="preview" />
           {:then { default: Preview }}
             <ProjectPreview href={project.href} title={project.title} subtitle={project.subtitle} description={project.description} {Preview} type="3D" />
