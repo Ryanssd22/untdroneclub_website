@@ -27,7 +27,7 @@
   $effect(() => {
     if (navBarSettings.ready) {
       loader = new HDRLoader();
-      promise = loader.loadAsync('3d/tiergarten_4k.hdr').then((texture) => {
+      promise = loader.loadAsync('3d/sunset_1k.hdr').then((texture) => {
         texture.mapping = EquirectangularReflectionMapping;
         return texture;
       });
@@ -110,9 +110,9 @@
       <!-- Environment texture -->
       <!-- <Environment url="src/lib/assets/3d/lilienstein_4k.hdr" bind:skybox {ground} /> -->
       {#await promise then texture}
-        <Environment {texture} />
+        <!-- <Environment {texture} /> -->
       {/await}
-      <T.AmbientLight intensity={0.5} />
+      <!-- <T.AmbientLight intensity={9.5} /> -->
 
       <!-- CAMERA -->
       <T.PerspectiveCamera makeDefault position={[45,10,90]} fov={18}>
@@ -141,13 +141,13 @@
   <!-- CLOUDS -->
   <div class="absolute inset-0 z-30 h-screen">
     <div class="flex flex-col justify-end w-full h-full">
-      <div class="cloudBg flex bg-repeat-x h-50 w-[1700px] drop-shadow-2xl" style="background-image: url('/3d/clouds-bg.webp')">
+      <div class="cloudBg flex bg-repeat-x h-50 w-[2700px] drop-shadow-2xl" style="background-image: url('/3d/clouds-bg.webp')">
       </div>
     </div>
   </div>
   <div class="absolute bottom-65 opacity-70 scale-145 z-10 h-screen">
     <div class="flex flex-col justify-end w-full h-full">
-      <div class="cloudFg flex bg-repeat-x h-50 w-[1700px] drop-shadow-sm" style="background-image: url('/3d/clouds-bg.webp')">
+      <div class="cloudFg flex bg-repeat-x h-50 w-[2700px] drop-shadow-sm" style="background-image: url('/3d/clouds-bg.webp')">
       </div>
     </div>
   </div>
@@ -175,7 +175,7 @@
       {#await promise then texture}
         <Environment {texture} />
       {/await}
-      <T.AmbientLight intensity={0.5} />
+      <!-- <T.AmbientLight intensity={2.5} /> -->
 
       <!-- CAMERA -->
       <T.PerspectiveCamera makeDefault position={[-85,5,20]} fov={18}>
