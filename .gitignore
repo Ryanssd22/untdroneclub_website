@@ -3,7 +3,7 @@
 /node_modules
 
 # Stupid mac thing
-/.DS_Store
+.DS_Store
 
 # Sveltekit build temps
 .svelte-kit/
