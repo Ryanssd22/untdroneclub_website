@@ -4,6 +4,7 @@
 /* Stops elastic scrolling */
 body {
   overscroll-behavior: none;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 @font-face {

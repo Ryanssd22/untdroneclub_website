@@ -45,20 +45,63 @@
     cloudAnim();
   })
 
-  //Animation
-  let djiY = new Tween(-44.3, {easing: quintOut, duration: 2000});
-  $effect(() => {
-    if (heroSettings.ready) {
-      djiY.target = 0;
-    }
-  })
+  //Responsive variables
   let screenWidth = $state(0);
   let screenHeight = $state(0);
   let screenRatio = $derived(screenWidth/screenHeight);
-  let djiX = $derived(screenRatio * 9);
-  let djiScale = $derived(screenRatio * 0.55 );
+  let largeMobile = $derived.by(() => {
+    if (screenWidth <= 430) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  let tablet = $derived.by(() => {
+    if (screenWidth <= 768 && !largeMobile) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  let desktop = $derived.by(() => {
+    if (!largeMobile && !tablet) {
+      return true;
+    } else {
+      return false;
+    }
+  });
 
-  $inspect("RATIO:", screenRatio);
+
+  //Animation
+  let djiY = new Tween(-44.3, {easing: quintOut, duration: 2000});
+  let djiYTarget = $derived.by(() => {
+    if (largeMobile || tablet) {
+      return -3;
+    } else if (desktop) {
+      return -2;
+    } else {
+      return undefined;
+    }
+  })
+  $effect(() => {
+    if (heroSettings.ready) {
+      djiY.target = djiYTarget;
+    }
+  })
+  let djiX = $derived(screenRatio * 9);
+  let djiScale = $derived.by(() => {
+    if (largeMobile) { // Large Mobile
+      return 0.5;
+    }
+    else if (tablet) { // Tablet
+      return 0.7; 
+    } else {  // Large Screen
+      return 0.9;
+    }
+  });
+
+
+  $inspect("WIDTH:", screenWidth);
 
   //SKY ANIMATION
   function cloudAnim() {
@@ -66,6 +109,10 @@
     cloudAnim.addLabel("cloudMove")
       .to(".cloudBg", {x: -850, duration:7, repeat:-1, ease: "linear"}, "cloudMove")
       .to(".cloudFg", {x: -850, duration:27, repeat:-1, ease: "linear"}, "cloudMove");
+
+    let objectAnim = gsap.timeline();
+    objectAnim.addLabel("objectMove")
+      .to(".morrison", {x: "-100vw", duration: 49, repeat: -1, ease: "linear"}, "objectMove");
   }
 
   // DEMOING:
@@ -122,26 +169,30 @@
     </Canvas>
   </div>
 
+
+
+
+
   {:else if DEMO == 2}
   <!-- TITLE & DESCRIPTION -->
-  <div class="relative z-20 h-full flex flex-col w-full pt-20 pb-15 px-5">
+  <div class="relative z-40 h-full flex flex-col w-full pt-18 pb-10 px-5">
     <!-- TITLE -->
     <div class="h-1/2 flex flex-col py-10">
-      <h1 class="font-[Bronzier] font-bold text-8xl tracking-[4px]">UNT Drone Club</h1>
-      <p class="italic px-1">University of North Texas | College of Engineering </p>
+      <h1 class="font-[Bronzier] font-bold text-7xl tracking-[2px] md:text-8xl md:tracking-[4px]">UNT Drone Club</h1>
+      <p class="italic px-1 text-xl font-light">University of North Texas | College of Engineering </p>
     </div>
     
     <!-- DESCRIPTION -->
-    <div class="h-1/2 flex flex-col justify-end">
-      <p>Interested in flying, designing, building, and programing drones? Visit Drone Club!</p>
-      <button>Contact us</button>
+    <div class="h-1/2 flex flex-col justify-end items-end">
+      <p class="text-2xl">Interested in flying, designing, building, and programing drones? Join us!</p>
+      <button class="rounded-md px-2 py-1 bg-unt-green">Contact us</button>
     </div>
   </div>
 
   <!-- CLOUDS -->
   <div class="absolute inset-0 z-30 h-screen">
     <div class="flex flex-col justify-end w-full h-full">
-      <div class="cloudBg flex bg-repeat-x h-50 w-[2700px] drop-shadow-2xl" style="background-image: url('/3d/clouds-bg.webp')">
+      <div class="cloudBg blur-[1px] flex bg-repeat-x h-50 w-[2700px] drop-shadow-2xl" style="background-image: url('/3d/clouds-bg.webp')">
       </div>
     </div>
   </div>
@@ -153,12 +204,16 @@
   </div>
 
   <!-- SKY -->
-  <div class="absolute inset-0 z-0 bg-sky-200"></div>
+  <div class="absolute inset-0 z-0 bg-linear-to-t from-sky-200 to-sky-500 from-60% to-90%"></div>
 
+  <!-- SUN -->
+  <div class="absolute inset-0 z-1 bg-linear-to-bl from-yellow-200/60 to-white/0 from-10% to-50%"></div>
 
+  <!-- BACKGROUND OBJECTS -->
+  <!-- <img src="/3d/morrison.webp" alt="Morrison corn kits" class="morrison absolute bottom-10 right-0 opacity-50 size-90 z-5 blur-[1px]" /> -->
 
   <!-- 3D MODEL  -->
-  <div class="z-10 absolute inset-10 w-screen h-screen">
+  <div class="z-12 absolute inset-0 w-screen h-screen">
     <Canvas>
       {#if navBarSettings.ready}
         <!-- Drone model -->
