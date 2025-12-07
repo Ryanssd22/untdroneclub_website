@@ -17,10 +17,12 @@
   import { navBarSettings } from '$lib/components/navbarSettings.svelte.js'
   import { heroSettings } from './heroSettings.svelte.js';
 
-  //Image imports
+  //Image/icon imports
+  import GameIconsBoatPropeller from '~iconify/game-icons/boat-propeller';
 
   //GSAP imports
   import { gsap } from 'gsap';
+  import { SplitText } from 'gsap/SplitText';
 
   //HDRI Loader an environment
   let loader = null, promise = $state(null);
@@ -42,6 +44,7 @@
   onMount(() => {
     heroSettings.ready = false;
 
+    titleAnim();
     cloudAnim();
   })
 
@@ -102,6 +105,13 @@
 
 
   $inspect("WIDTH:", screenWidth);
+
+  //TITLE ANIMATION
+  function titleAnim() {
+    gsap.registerPlugin(SplitText);
+    let titleAnim = gsap.timeline();
+    titleAnim.addLabel("start");
+  }
 
   //SKY ANIMATION
   function cloudAnim() {
@@ -178,7 +188,7 @@
   <div class="relative z-40 h-full flex flex-col w-full pt-18 pb-10 px-5">
     <!-- TITLE -->
     <div class="h-1/2 flex flex-col py-10">
-      <h1 class="font-[Bronzier] font-bold text-7xl tracking-[2px] md:text-8xl md:tracking-[4px]">UNT Drone Club</h1>
+      <h1 class="font-[Bronzier] font-bold text-7xl tracking-[2px] md:text-8xl md:tracking-[4px] title">UNT Drone Club</h1>
       <p class="italic px-1 text-xl font-light">University of North Texas | College of Engineering </p>
     </div>
     
@@ -210,7 +220,11 @@
   <div class="absolute inset-0 z-1 bg-linear-to-bl from-yellow-200/60 to-white/0 from-10% to-50%"></div>
 
   <!-- BACKGROUND OBJECTS -->
-  <!-- <img src="/3d/morrison.webp" alt="Morrison corn kits" class="morrison absolute bottom-10 right-0 opacity-50 size-90 z-5 blur-[1px]" /> -->
+  <img src="/3d/morrison.webp" alt="Morrison corn kits" class="morrison absolute bottom-10 right-0 opacity-50 size-90 z-5 blur-[1px]" />
+
+  <!-- ICONS -->
+  <GameIconsBoatPropeller class="absolute size-5 inset-3"/>
+  <GameIconsBoatPropeller class="absolute size-5 -inset-3"/>
 
   <!-- 3D MODEL  -->
   <div class="z-12 absolute inset-0 w-screen h-screen">
