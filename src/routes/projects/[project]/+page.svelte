@@ -1,11 +1,8 @@
 <script>
-  import markdown_raw from "$lib/projects/markdown/crazyflie.md?raw";
+  // Loading Markdown
   import MarkdownIt from "markdown-it";
-
   let { data } = $props();
   let { markdown } = data;
-  console.log("MARKDOWN:", markdown);
-
   const md = new MarkdownIt();
 
 </script>
