@@ -76,11 +76,11 @@
 	<!-- LEFT ALIGNED NAVIGATION-->
 	<div class="mx-8 flex h-full flex-row items-center gap-8">
     <!-- DRONE CLUB LOGO -->
-		<img src="logo/untLogo.png" alt="UNT Logo" class="h-full object-contain" />
+		<img src="/logo/untLogo.png" alt="UNT Logo" class="h-full object-contain" />
 
 		<!-- NAVIGATION LINKS -->
 		<div class="gap-4 font-[Bronzier] text-xl italic hidden sm:flex" >
-			<a class="group transition-colors duration-100 hover:text-green-300" href="/">
+			<a class="group transition-colors duration-100 hover:text-unt-neon" class:text-unt-green={pathname == '/'} href="/">
 				HOME
 				<span class="-mt-1 block h-[1px] max-w-0 bg-green-600 transition-all group-hover:max-w-full"
 				></span>
@@ -136,17 +136,17 @@
 			<!-- 	</DropdownMenu.Portal> -->
 			<!-- </DropdownMenu.Root> -->
 
-			<a href="/projects" class="group transition-colors duration-100 hover:text-green-300">
+			<a href="/projects" class="group transition-colors duration-100 hover:text-unt-neon" class:text-unt-green={pathname == '/projects'}>
           PROJECTS
         <span class="-mt-1 block h-[1px] max-w-0 bg-green-600 transition-all group-hover:max-w-full"
 				></span>
       </a>
-			<a href="/members" class="group transition-colors duration-100 hover:text-green-300">
+			<a href="/members" class="group transition-colors duration-100 hover:text-unt-neon" class:text-unt-green={pathname == '/members'}>
         MEMBERS
         <span class="-mt-1 block h-[1px] max-w-0 bg-green-600 transition-all group-hover:max-w-full"
 				></span>
       </a>
-			<a href="/sponsors" class="group transition-colors duration-100 hover:text-green-300">
+			<a href="/sponsors" class="group transition-colors duration-100 hover:text-unt-neon" class:text-unt-green={pathname == '/sponsors'}>
         SPONSORS
         <span class="-mt-1 block h-[1px] max-w-0 bg-green-600 transition-all group-hover:max-w-full"
 				></span>
@@ -157,14 +157,14 @@
 	<!-- RIGHT ALIGNED SOCIALS -->
 	<div class="mr-4 flex flex-row items-center gap-2">
 		<!-- INSTAGRAM -->
-		<a href="https://www.instagram.com/meangreenracing/?hl=en" target="_blank">
+		<a href="https://www.instagram.com/untdroneclub/?hl=en" target="_blank">
 			<MdiInstagram class="size-6" />
 		</a>
 
 		<!-- FACEBOOK -->
-		<a href="https://www.facebook.com/UNTMeanGreenRacing/" target="_blank">
-			<MdiFacebook class="size-6" />
-		</a>
+		<!-- <a href="https://www.facebook.com/UNTMeanGreenRacing/" target="_blank"> -->
+		<!-- 	<MdiFacebook class="size-6" /> -->
+		<!-- </a> -->
 
     <!-- DISCORD -->
     <a href="https://discord.gg/2PckGJCbmp" target="_blank">
@@ -172,9 +172,9 @@
     </a>
 
     <!-- LINKEDIN -->
-    <a href="https://www.linkedin.com/company/fsae-unt-mean-green-racing/" target="_blank">
-      <MdiLinkedin class="size-6" />
-    </a>
+    <!-- <a href="https://www.linkedin.com/company/fsae-unt-mean-green-racing/" target="_blank"> -->
+    <!--   <MdiLinkedin class="size-6" /> -->
+    <!-- </a> -->
 	</div>
 </div>
 

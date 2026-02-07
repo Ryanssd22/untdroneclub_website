@@ -5,7 +5,8 @@
     "description": "A palm-sized research quadcopter with a powerful, modular feature set",
     "preview": "Crazyflie.svelte",
     "previewType": "3D",
-    "href": "/projects/crazyflie"
+    "href": "/projects/crazyflie",
+    "markdown": "crazyflie.md"
   },
   {
     "title": "Stingray",
@@ -13,7 +14,8 @@
     "description": "Idk if it's working lol",
     "preview": "Stingray.svelte",
     "previewType": "3D",
-    "href": "/projects/crazyflie"
+    "href": "/projects/stingray",
+    "markdown": "stingray.md"
   },
   {
     "title": "World Record Drone",
@@ -21,7 +23,8 @@
     "description": "Idk if it's working lol",
     "preview": "WorldRecord",
     "previewType": "IMG",
-    "href": "/projects/worldRecord"
+    "href": "/projects/worldRecord",
+    "markdown": "worldrecord.md"
   },
   {
     "title": "Drone Club Website",

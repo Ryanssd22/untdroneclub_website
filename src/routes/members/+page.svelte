@@ -7,7 +7,7 @@
 
 </script>
 
-<div class="flex-center flex flex-col w-full items-center">
+<div class="flex-center flex flex-col w-full items-center bg-white">
   <!-- HEADSHOTS COMPONENT -->
   <div class="flex-col h-full flex w-full justify-center p-4">
     {#each headshot_descriptions as position, i (position.position)}

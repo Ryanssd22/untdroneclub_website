@@ -18,7 +18,7 @@
   import { heroSettings } from './heroSettings.svelte.js';
 
   //Image/icon imports
-  import GameIconsBoatPropeller from '~iconify/game-icons/boat-propeller';
+  import TablerPropeller from '~icons/tabler/propeller';
 
   //GSAP imports
   import { gsap } from 'gsap';
@@ -110,18 +110,27 @@
   function titleAnim() {
     gsap.registerPlugin(SplitText);
     let titleAnim = gsap.timeline();
-    titleAnim.addLabel("start");
+    let titleText = SplitText.create(".title", {type: "words"});
+    titleAnim.addLabel("start")
+      .from(titleText.words, {y: -50, opacity: 0, duration: 1, stagger: 0.1}, "start");
   }
 
   //SKY ANIMATION
   function cloudAnim() {
     let cloudAnim = gsap.timeline();
-    cloudAnim.addLabel("cloudMove")
+    cloudAnim.addLabel("cloudInit")
+      .from(".cloudBg", {y: 250, duration:2, ease: "power3.out"}, "cloudMove")
+      .from(".cloudFg", {y: 250, duration:2, ease: "power3.out"}, "cloudMove")
       .to(".cloudBg", {x: -850, duration:7, repeat:-1, ease: "linear"}, "cloudMove")
       .to(".cloudFg", {x: -850, duration:27, repeat:-1, ease: "linear"}, "cloudMove");
 
+    // cloudAnim.addLabel("cloudMove")
+    //   .to(".cloudBg", {x: -850, duration:7, repeat:-1, ease: "linear"}, "cloudMove")
+    //   .to(".cloudFg", {x: -850, duration:27, repeat:-1, ease: "linear"}, "cloudMove");
+
     let objectAnim = gsap.timeline();
     objectAnim.addLabel("objectMove")
+      .fromTo(".morrison", {opacity: 0}, {opacity: 0.5, duration: 5}, "objectMove")
       .to(".morrison", {x: "-100vw", duration: 49, repeat: -1, ease: "linear"}, "objectMove");
   }
 
@@ -144,7 +153,7 @@
   <div class="md:w-1/2 relative z-20 flex h-full ml-5 md:ml-15">
     <div class="flex flex-col justify-end">
       <div class="flex flex-col justify-end md:justify-start h-2/3">
-        <h1 class="font-bold text-8xl font-[Bronzier] tracking-[4px]">UNT Drone Club</h1>
+        <h1 class="title font-bold text-8xl font-[Bronzier] tracking-[4px] text-green-300">UNT Drone Club</h1>
         <p>A place to fly, design, build, and research drones</p>
         <button onclick={animate} class="p-2 w-40 rounded-xl bg-gray-400 hover:bg-blue-400">Animate</button>
       </div>
@@ -188,14 +197,14 @@
   <div class="relative z-40 h-full flex flex-col w-full pt-18 pb-10 px-5">
     <!-- TITLE -->
     <div class="h-1/2 flex flex-col py-10">
-      <h1 class="font-[Bronzier] font-bold text-7xl tracking-[2px] md:text-8xl md:tracking-[4px] title">UNT Drone Club</h1>
+      <h1 class="font-[Bronzier] font-bold text-unt-green text-7xl tracking-[2px] md:text-8xl md:tracking-[4px] title text-shadow-lg">UNT Drone Club</h1>
       <p class="italic px-1 text-xl font-light">University of North Texas | College of Engineering </p>
     </div>
     
     <!-- DESCRIPTION -->
     <div class="h-1/2 flex flex-col justify-end items-end">
-      <p class="text-2xl">Interested in flying, designing, building, and programing drones? Join us!</p>
-      <button class="rounded-md px-2 py-1 bg-unt-green">Contact us</button>
+      <p class="text-4xl">Interested in flying, designing, building, and programing drones? Join us!</p>
+      <button class="rounded-md px-2 py-1 bg-unt-green text-xl">Contact us</button>
     </div>
   </div>
 
@@ -220,11 +229,11 @@
   <div class="absolute inset-0 z-1 bg-linear-to-bl from-yellow-200/60 to-white/0 from-10% to-50%"></div>
 
   <!-- BACKGROUND OBJECTS -->
-  <img src="/3d/morrison.webp" alt="Morrison corn kits" class="morrison absolute bottom-10 right-0 opacity-50 size-90 z-5 blur-[1px]" />
+  <img src="/3d/morrison.webp" alt="Morrison corn kits" class="morrison absolute bottom-10 right-0 size-90 z-5 blur-[1px]" />
 
   <!-- ICONS -->
-  <GameIconsBoatPropeller class="absolute size-5 inset-3"/>
-  <GameIconsBoatPropeller class="absolute size-5 -inset-3"/>
+  <TablerPropeller class="absolute size-5 inset-3"/>
+  <TablerPropeller class="absolute size-5 -inset-3"/>
 
   <!-- 3D MODEL  -->
   <div class="z-12 absolute inset-0 w-screen h-screen">

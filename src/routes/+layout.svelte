@@ -28,7 +28,7 @@
 </svelte:head>
 
 <!-- FULL DIV -->
-<div class="flex w-full overflow-x-hidden font-[Space_Grotesk]">
+<div class="flex w-full overflow-x-hidden font-[Space_Grotesk] bg-white">
 	<!-- NAVBAR -->
   <NavBar />
 

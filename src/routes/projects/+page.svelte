@@ -17,15 +17,15 @@
 
   // Background Animation
   onMount(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    gsap.to(".gridPattern", {
-      scrollTrigger: {
-        trigger: ".projectGrid",
-        start: 'top top',
-        scrub: 1,
-      },
-      y: -100,
-    })
+    // gsap.registerPlugin(ScrollTrigger)
+    // gsap.to(".gridPattern", {
+    //   scrollTrigger: {
+    //     trigger: ".projectGrid",
+    //     start: 'top top',
+    //     scrub: 1,
+    //   },
+    //   y: -100,
+    // })
   })
 
   // Importing previews 
@@ -40,7 +40,7 @@
   })
 </script>
 
-<div class="projectGrid w-full bg-white px-4">
+<div class="projectGrid w-full px-4">
   <!-- TITLE -->
   <div class="z-10 relative flex justify-center mt-4">
     <h1 class="font-bold text-7xl font-[Bronzier] tracking-[4px]">Our Projects</h1>
@@ -68,7 +68,7 @@
   </div>
 
   <!-- GRID BG -->
-  <div class="opacity-80 gridPattern z-0 w-full fixed inset-0 scale-110">
+  <div in:fly={{ delay: 500, duration: 2000 }} class="opacity-80 gridPattern z-0 w-full fixed inset-0 scale-110">
     <GridPattern class="[mask-image:radial-gradient(900px_circle_at_center,transparent,white)]" fillColor="#059033" width={70} height={70}/>
   </div>
 

@@ -47,9 +47,9 @@
 
   //Hero component animation
   onMount(() => {
-    // gsap.registerPlugin(SplitText);
-    // gsap.registerPlugin(ScrollTrigger);
-    //
+    gsap.registerPlugin(SplitText);
+    gsap.registerPlugin(ScrollTrigger);
+
     // let heroGsap = gsap.timeline();
     // let heroTitle = SplitText.create(".heroTitle", {type: "words"});
     // let heroPreTitle = SplitText.create(".heroPreTitle", {type: "chars"})
@@ -138,9 +138,9 @@
     
     <!-- PROJECTS -->
     <div class="grid grid-cols-1 projsm:grid-cols-2 projmd:grid-cols-3 gap-4 sm:mx-10">
-      <ProjectPreview Model={Crazyflie} type="3d" title="Crazyflie" subtitle="Bitcraze" description="A palm-sized research quadcopter with a powerful, modular feature set"/>
-      <ProjectPreview Model={Stingray} type="3d" title="Stingray" subtitle="idk lol" description="Matthew's finest work"/>
-      <ProjectPreview title="World Record Drone" subtitle="Maybe" description="This guy goes faster than the speed limit"/>
+      <ProjectPreview href="/projects/crazyflie" Preview={Crazyflie} type="3D" title="Crazyflie" subtitle="Bitcraze" description="A palm-sized research quadcopter with a powerful, modular feature set"/>
+      <ProjectPreview href="/projects/stingray" Preview={Stingray} type="3D" title="Stingray" subtitle="idk lol" description="Matthew's finest work"/>
+      <ProjectPreview href="/projects/worldRecord" title="World Record Drone" subtitle="Maybe" description="This guy goes faster than the speed limit"/>
       <ProjectPreview type="placeholder"/>
     </div>
   </div>
