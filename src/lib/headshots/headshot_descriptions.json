@@ -41,6 +41,19 @@
   },
   {
     "position": "Members",
-    "members": []
+    "members": [
+      {
+        "name": "Ethan Wong",
+        "title": "Aerodynamics Lead",
+        "description": "I also left my wife for drones!",
+        "image": "ethan_wong.webp"
+      },
+      {
+        "name": "Igor Leeck",
+        "title": "Research and Racing Lead",
+        "description": "Sorry, I'm Droning Right Now",
+        "image": "igor_leeck.webp"
+      }
+    ]
   }
 ]

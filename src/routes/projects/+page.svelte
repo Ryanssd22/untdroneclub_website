@@ -61,7 +61,7 @@
             {/await}
           {/if}
         {:else if project.previewType == "IMG"}
-          <ProjectPreview href={project.href} title={project.title} subtitle={project.subtitle} description={project.description} />
+          <ProjectPreview href={project.href} type="IMG" title={project.title} subtitle={project.subtitle} description={project.description} src={project.src}/>
         {/if}
       {/each}
     </div>

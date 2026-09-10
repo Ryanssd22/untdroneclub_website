@@ -8,7 +8,7 @@
   import { Tween } from 'svelte/motion';
   import { cubicInOut } from 'svelte/easing';
 
-  let { type = undefined, title, subtitle, description, Preview = undefined, href = "/" } = $props();
+  let { type = undefined, title, subtitle, description, Preview = undefined, href = "/", src } = $props();
 
   //Hover animation handling
   let model = undefined;
@@ -46,6 +46,13 @@
         <Canvas>
             <Preview />
         </Canvas>
+      </div>
+    {/if}
+
+    <!-- IMAGE -->
+    {#if type == "IMG"}
+      <div class="flex justify-center flex-row w-full items-center">
+        <img {src} alt="Project" class="w-110"/>
       </div>
     {/if}
   {/if}

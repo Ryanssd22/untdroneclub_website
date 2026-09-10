@@ -26,7 +26,7 @@
   // ============================================================
   // ICONS
   // ============================================================
-  import TablerPropeller from '~icons/tabler/propeller';
+  // import TablerPropeller from '~icons/tabler/propeller';
 
   // ============================================================
   // GSAP
@@ -223,15 +223,22 @@
   // MOUSE / POINTER PARALLAX
   // ============================================================
 
-  let pointerX = $state(0);
-  let pointerY = $state(0);
+  let pointerX = new Tween(0, {
+    duration: 450,
+    easing: quintOut
+  });
+
+  let pointerY = new Tween(0, {
+    duration: 450,
+    easing: quintOut
+  });
 
   function handlePointerMove(event) {
     if (!screenWidth || !screenHeight) return;
 
     // Range approximately -1 ... +1
-    pointerX = (event.clientX / screenWidth - 0.5) * 2;
-    pointerY = (event.clientY / screenHeight - 0.5) * 2;
+    pointerX.target = (event.clientX / screenWidth - 0.5) * 2;
+    pointerY.target = (event.clientY / screenHeight - 0.5) * 2;
   }
 
 
@@ -239,15 +246,15 @@
   // This keeps the drone feeling alive without becoming
   // a 3D model viewer.
   let finalRotX = $derived(
-    droneRotX.current + pointerY * 0.025
+    droneRotX.current + pointerY.current * 0.025
   );
 
   let finalRotY = $derived(
-    droneRotY.current + pointerX * 0.045
+    droneRotY.current + pointerX.current * 0.045
   );
 
   let finalRotZ = $derived(
-    droneRotZ.current - pointerX * 0.025
+    droneRotZ.current - pointerX.current * 0.025
   );
 
 
@@ -749,7 +756,6 @@
 
     <section
       class="
-        max-w-[850px]
       "
     >
 
@@ -764,7 +770,7 @@
             leading-[0.82]
             tracking-[2px]
             text-unt-green
-            text-[clamp(4.5rem,9vw,9rem)]
+            text-8xl
             text-shadow-lg
           "
         >
@@ -974,7 +980,7 @@
        DECORATIVE PROPELLERS
   ========================================================= -->
 
-  <TablerPropeller
+  <!-- <TablerPropeller
     class="
       absolute
       left-5
@@ -994,7 +1000,7 @@
       size-5
       text-slate-800/50
     "
-  />
+  /> -->
 
   <!-- ========================================================
        VERY LIGHT SCREEN VIGNETTE

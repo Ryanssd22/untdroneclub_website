@@ -10,21 +10,22 @@
   },
   {
     "title": "Stingray",
-    "subtitle": "Matthew's finest work",
-    "description": "Idk if it's working lol",
+    "subtitle": "Flightory Kit",
+    "description": "A 3D-Printed VTOL Quadplane, with custom electronics",
     "preview": "Stingray.svelte",
     "previewType": "3D",
     "href": "/projects/stingray",
     "markdown": "stingray.md"
   },
   {
-    "title": "World Record Drone",
-    "subtitle": "In the Guiness Book of 'Yeah Right'",
-    "description": "Idk if it's working lol",
-    "preview": "WorldRecord",
+    "title": "Drone Racing",
+    "subtitle": "MultiGP",
+    "description": "Flying at Mach 10",
+    "preview": "racing",
     "previewType": "IMG",
-    "href": "/projects/worldRecord",
-    "markdown": "worldrecord.md"
+    "href": "/projects/racing",
+    "src": "/project_photos/racing.jpg",
+    "markdown": "racing.md"
   },
   {
     "title": "Drone Club Website",
@@ -32,6 +33,16 @@
     "description": "Idk if it's working lol",
     "preview": "websitePreview",
     "previewType": "IMG",
+    "src": "",
     "href": "/projects/website"
+  },
+  {
+    "title": "SAE Aero",
+    "subtitle": "Autonomous Flight",
+    "description": "Attempting to create our first ever custom VTOL",
+    "preview": "SaeAero",
+    "previewType": "IMG",
+    "src": "/project_photos/saeaero.jpg",
+    "href": "/projects/saeaero"
   }
 ]

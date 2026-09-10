@@ -79,7 +79,7 @@
 </script>
 
 <!-- 3D HERO COMPONENT -->
-<div class="fixed z-10 h-screen w-screen overflow-hidden">
+<div class="z-10 h-screen w-full overflow-hidden">
   <HeroAnimation />
 </div>
 
@@ -125,38 +125,226 @@
 <!-- </div> -->
 
 <!-- SPACING -->
-<div class="h-screen"></div>
+<!-- <div class="h-screen"></div> -->
 
 <!-- MAIN HOME CONTENT -->
-<div class="mainHome relative z-20 bg-green-50 w-screen">
+<div class="mainHome relative z-[50] w-full -top-10">
+
   <!-- PROJECTS -->
-  <div class="flex flex-col justify-center">
-    <!-- TITLE -->
-    <div class="flex justify-center">
-      <h2>Our Projects</h2>
+  <section class=" projects-folder">
+
+    <div class="projects-folder-inner">
+
+      <!-- FOLDER TAB TITLE -->
+      <div class="projects-folder-title">
+        <h2 class="projects-title">Our Projects</h2>
+      </div>
+
+      <!-- PROJECT GRID -->
+      <div
+        class="
+          grid
+          grid-cols-1
+          gap-4
+          px-4
+          pb-16
+          pt-10
+          sm:mx-10
+          projsm:grid-cols-2
+          projmd:grid-cols-3
+        "
+      >
+        <ProjectPreview
+          href="/projects/crazyflie"
+          Preview={Crazyflie}
+          type="3D"
+          title="Crazyflie"
+          subtitle="Bitcraze"
+          description="A palm-sized research quadcopter with a powerful, modular feature set"
+        />
+
+        <ProjectPreview
+          href="/projects/stingray"
+          Preview={Stingray}
+          type="3D"
+          title="Stingray"
+          subtitle="idk lol"
+          description="Matthew's finest work"
+        />
+
+        <ProjectPreview
+          href="/projects/racing"
+          type="IMG"
+          src="/project_photos/racing.jpg"
+          title="Drone Racing"
+          subtitle="MultiGP"
+          description="Racing at Mach 10"
+        />
+
+        <ProjectPreview
+          href="/projects/saeaero"
+          type="IMG"
+          src="/project_photos/saeaero.jpg" 
+          title="SAE AERO Competition"
+          subtitle="Autonomous Flight"
+          description="Attempting to create our first ever custom VTOL"
+        />
+      </div>
+
     </div>
-    
-    <!-- PROJECTS -->
-    <div class="grid grid-cols-1 projsm:grid-cols-2 projmd:grid-cols-3 gap-4 sm:mx-10">
-      <ProjectPreview href="/projects/crazyflie" Preview={Crazyflie} type="3D" title="Crazyflie" subtitle="Bitcraze" description="A palm-sized research quadcopter with a powerful, modular feature set"/>
-      <ProjectPreview href="/projects/stingray" Preview={Stingray} type="3D" title="Stingray" subtitle="idk lol" description="Matthew's finest work"/>
-      <ProjectPreview href="/projects/worldRecord" title="World Record Drone" subtitle="Maybe" description="This guy goes faster than the speed limit"/>
-      <ProjectPreview type="placeholder"/>
-    </div>
-  </div>
+
+  </section>
+
 
   <!-- CREW CAROUSEL -->
-  <div class="items-center flex flex-col justify-center">
+  <div class="flex flex-col items-center justify-center">
     <h2>Our crew</h2>
     <p>Couldn't have done it without you</p>
+
     <CrewCarousel />
   </div>
+
 </div>
 
 <style>
-	h2 {
-		font-family: Bronzier;
-		letter-spacing: 0.03em;
+  h2 {
+    font-family: Bronzier;
+    letter-spacing: 0.03em;
     font-size: 5em;
-	}
+  }
+
+
+  /* ============================================================
+     PROJECTS FOLDER
+     ============================================================ */
+
+  .projects-folder {
+  --tab-height: clamp(80px, 9vw, 120px);
+
+  position: relative;
+  z-index: 20;
+
+  margin-top: calc(var(--tab-height) * -0.65);
+
+  clip-path: polygon(
+    0 var(--tab-height),
+    25% var(--tab-height),
+    31% 0,
+    69% 0,
+    75% var(--tab-height),
+    100% var(--tab-height),
+    100% 100%,
+    0 100%
+  );
+
+  filter: drop-shadow(0 -8px 18px rgb(0 0 0 / 0.08));
+}
+
+
+  /* ============================================================
+     INNER FOLDER
+     ============================================================ */
+
+  .projects-folder-inner {
+    --tab-height: clamp(80px, 9vw, 120px);
+
+    position: relative;
+
+    background: #f0fdf4;
+
+    clip-path: polygon(
+      0 var(--tab-height),
+
+      25% var(--tab-height),
+      31% 0,
+
+      69% 0,
+      75% var(--tab-height),
+
+      100% var(--tab-height),
+
+      100% 100%,
+      0 100%
+    );
+  }
+
+
+  /* ============================================================
+     TAB TITLE
+     ============================================================ */
+
+  .projects-folder-title {
+    height: var(--tab-height);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 0.35rem;
+  }
+
+
+  .projects-title {
+    margin: 0;
+
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
+    line-height: 0.9;
+
+    color: #064e3b;
+
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+
+  /* ============================================================
+     MOBILE
+     ============================================================ */
+
+  @media (max-width: 640px) {
+    .projects-folder {
+      --tab-height: 78px;
+
+      /*
+        Slightly wider tab on small displays.
+      */
+      clip-path: polygon(
+        0 var(--tab-height),
+
+        12% var(--tab-height),
+        20% 0,
+
+        80% 0,
+        88% var(--tab-height),
+
+        100% var(--tab-height),
+
+        100% 100%,
+        0 100%
+      );
+    }
+
+    .projects-folder-inner {
+      --tab-height: 78px;
+
+      clip-path: polygon(
+        0 var(--tab-height),
+
+        12% var(--tab-height),
+        20% 0,
+
+        80% 0,
+        88% var(--tab-height),
+
+        100% var(--tab-height),
+
+        100% 100%,
+        0 100%
+      );
+    }
+
+    .projects-title {
+      font-size: 2.6rem;
+    }
+  }
 </style>

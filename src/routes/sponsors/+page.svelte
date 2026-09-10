@@ -9,15 +9,21 @@
 <!-- CONTENT -->
 <div class="p-4">
 	<p>
-		Thanks to our generous sponsors, Mean Green Racing is able to turn innovative designs into a
+		Thanks to our generous sponsors, UNT Drone Club is able to turn innovative designs into a
 		reality. Your support empowers our students with invaluable hands-on experience, helping to
 		build the next generation of engineering professionals. Your belief in our team really drives us
 		forward, and we couldn't be more grateful for your partnership in our pursuit of racing
 		excellence.
 	</p>
 
+	<br />
+	
+	<p>
+		Due to the start of the new season, we are currently organizing this page. Hopefully we'll see you on here soon!
+	</p>
+
 	<!-- SPONSOR GRID -->
-	<div class="grid grid-cols-3 gap-4 mt-4">
+	<!-- <div class="grid grid-cols-3 gap-4 mt-4">
 		{#each sponsors as sponsor (sponsor.name)}
 			<div class="flex flex-col justify-center">
 				{#await sponsor_images[`/src/lib/sponsors/${sponsor.image}`]() then { default: src }}
@@ -25,5 +31,5 @@
 				{/await}
 			</div>
 		{/each}
-	</div>
+	</div> -->
 </div>

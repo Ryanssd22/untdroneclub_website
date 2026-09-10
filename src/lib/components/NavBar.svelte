@@ -66,7 +66,7 @@
 
 <!-- MAIN NAVBAR DISPLAY -->
 <div
-	class="navBar fixed z-50 flex h-20 w-full flex-row items-center justify-between border-b-1 border-b-white/30 py-2 shadow-xl
+	class="navBar fixed z-[100] flex h-20 w-full flex-row items-center justify-between border-b-1 border-b-white/30 py-2 shadow-xl
   backdrop-blur-xs transition-colors duration-300 text-white"
 	class:duration-250={!navigating}
 	class:duration-0={navigating}

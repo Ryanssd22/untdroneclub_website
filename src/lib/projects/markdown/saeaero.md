@@ -1,0 +1,3 @@
+# SAE Aero
+
+SAE Aero Design is our flagship project and the club's main focus. We compete in the Advanced Class, the most technically demanding division of SAE Aero Design, which requires a full systems engineering approach spanning aerodynamics, mechanical design, electrical systems, and onboard computing. The Advanced Class emphasizes autonomy and precision payload delivery, pushing our team to design and build an aircraft capable of completing complex missions with minimal pilot input. This is where the club puts its most resources and most experienced members, and it represents the culmination of everything learned across our other projects.
