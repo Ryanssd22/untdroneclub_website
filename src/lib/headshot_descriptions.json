@@ -1,0 +1,66 @@
+[
+  {
+    "year": 2026,
+    "details":
+    [
+      {
+        "position": "Faculty",
+        "members": [
+          {
+            "name": "Dr. Fu",
+            "title": "Advisor",
+            "description": "Chair of Electrical Engineering",
+            "image": "shengli_fu.webp"
+          },
+          {
+            "name": "Angus Mccoll",
+            "title": "Development Director",
+            "description": "Assistant Dean",
+            "image": "angus_mccoll.webp"
+          }
+        ]
+      },
+      {
+        "position": "Officers",
+        "members": [
+          {
+            "name": "Mario",
+            "title": "SAE Aero Chief Engineer",
+            "description": "I dream of drones every day",
+            "image": "mario.webp"
+          },
+          {
+            "name": "Matthew Moriarty",
+            "title": "President",
+            "description": "I'm part of the Quad Squad!",
+            "image": "matthew.webp",
+            "image_hover": "mario.webp"
+          },
+          {
+            "name": "Travis",
+            "title": "Research Manager",
+            "description": "I love drones!",
+            "image": "travis.webp"
+          }
+        ]
+      },
+      {
+        "position": "Members",
+        "members": [
+          {
+            "name": "Ethan Wong",
+            "title": "Aerodynamics Lead",
+            "description": "I am as smooth as an airfoil!",
+            "image": "ethan_wong.webp"
+          },
+          {
+            "name": "Igor Leeck",
+            "title": "Research and Racing Lead",
+            "description": "Sorry, I'm Droning Right Now",
+            "image": "igor_leeck.webp"
+          }
+        ]
+      }
+    ]
+  }
+]

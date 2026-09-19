@@ -11,7 +11,7 @@
 
   import { HDRLoader } from 'three/examples/jsm/Addons.js';
 
-  import SaeAero from '$lib/assets/3d/sae_aero.svelte';
+  import SaeAero from '$lib/assets/3d/sae_aero_with_logo.svelte';
 
   // ============================================================
   // SVELTE

@@ -2,8 +2,8 @@
 <script>
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 	import AutoScroll from 'embla-carousel-auto-scroll';
-	import headshot_descriptions from '$lib/headshots/headshot_descriptions.json';
-	const headshot_images = import.meta.glob('$lib/headshots/*.webp');
+	import headshot_descriptions from '$lib/headshot_descriptions.json';
+	import eagle_image from '$lib/assets/unt_logo_eagle.webp';
 
 	let emblaApi;
 	const options = {
@@ -13,12 +13,15 @@
 	};
 	const plugins = [AutoScroll({ speed: 1 })];
 
-  //Convert headshot_descriptions into array of members
-  let headshot_members = $state([]);
-  headshot_descriptions.forEach((position) => {
-    let members = position.members;
-    headshot_members = headshot_members.concat(members);
-  })
+	//Convert headshot_descriptions into array of members
+	let headshot_members = $state([]);
+	let current_year = $state(0);
+	// let image_prefix = headshot_descriptions[current_year].image_prefix;
+	let image_prefix = "headshots/"
+	headshot_descriptions[current_year].details.forEach((position) => {
+		let members = position.members;
+		headshot_members = headshot_members.concat(members);
+	})
 
 	//Initializes Embla API
 	function onInit(event) {
@@ -44,32 +47,41 @@
 		onemblaInit={onInit}
 	>
 		<div class="embla__container my-2">
-			{#each headshot_members as headshot (headshot.name)}
+			{#each headshot_members as member (member.name)}
 				<div class="embla__slide flex-center flex w-full items-center">
 					<div class="m-auto flex flex-col">
-						<!-- PHOTO -->
-						<div
-							class="group relative h-60 w-50 overflow-hidden rounded-md transition-all duration-400 hover:scale-104 hover:rotate-1"
-						>
-							<!-- GRADIENT BACKGROUND -->
-							<div
-								class="absolute inset-0 bg-gradient-to-t from-green-800 from-20% to-white/0 to-80% transition-colors group-hover:from-green-600"
-							></div>
+						<!-- HEADSHOT COMPONENT -->
+            <div class="flex flex-col flex-center items-center">
+              <!-- TRANSFORMS DIV -->
+              <div class="group relative h-35 w-30 sm:h-70 sm:w-60 hover:rotate-1 hover:scale-104 transition-all duration-800">
+                
+                <!-- CLIP DIV -->
+                <div class="absolute inset-0 rounded-md" style="clip-path: inset(-50px 0px 0px 0px);">
+                  
+                  <!-- GRADIENT BACKGROUND -->
+                  <div in:fly={{ y:5 }} class="absolute inset-0 bg-gradient-to-t from-green-700 from-10% to-85% to-white/0 z-0 transition-colors group-hover:from-green-600">
+                    <img src={eagle_image} alt="" class="absolute w-20 pl-1 pt-5 opacity-40" />
+                  </div>
 
-							<!-- HEADSHOT IMAGE -->
-							{#await headshot_images[`/src/lib/headshots/${headshot.image}`]() then { default: src }}
-								<img
-									{src}
-									alt={headshot.name}
-									class="absolute inset-0 h-full w-full object-cover transition-all duration-800 group-hover:scale-105"
-								/>
-							{/await}
-						</div>
+                  <!-- HEADSHOT IMAGE -->
+                  {#if member.image_hover}
+                    <img in:fly={{ y:5, delay: 50*i }} src={"/headshots/" + member.image} alt={member.name} class="absolute inset-0 z-30 h-full w-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-0" />
+                    <img
+                      src={"/headshots/" + member.image_hover}
+                      alt="{member.name}"
+                      class="absolute inset-0 h-full w-full object-cover opacity-0 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100"
+                    />
+                  {:else}
+                    <img in:fly={{ y:5, delay: 50*i }} src={"/headshots/" + member.image} alt={member.name} class="absolute inset-0 z-30 h-full w-full object-cover transition-all duration-300 group-hover:scale-110 origin-bottom" />
+                  {/if}
+                  
+                </div>
+              </div>
 
-						<!-- HEADSHOT DESCRIPTION -->
-						<h2 class="mt-1 font-bold">{headshot.name}</h2>
-						<h3 class="italic">{headshot.title}</h3>
-						<p>{headshot.description}</p>
+              <h2 class="font-bold text-lg">{member.name}</h2>
+              <h3 class="italic">{member.title}</h3>
+              <p>{member.description}</p>
+            </div>
 					</div>
 				</div>
 			{/each}
@@ -90,7 +102,7 @@
 
 <style>
 	.embla {
-		overflow: hidden;
+		overflow: visible;
 	}
 	.embla__container {
 		display: flex;
