@@ -23,7 +23,7 @@
 	</p>
 
 	<!-- SPONSOR GRID -->
-	<!-- <div class="grid grid-cols-3 gap-4 mt-4">
+	<div class="grid grid-cols-3 gap-4 mt-4">
 		{#each sponsors as sponsor (sponsor.name)}
 			<div class="flex flex-col justify-center">
 				{#await sponsor_images[`/src/lib/sponsors/${sponsor.image}`]() then { default: src }}
@@ -31,5 +31,5 @@
 				{/await}
 			</div>
 		{/each}
-	</div> -->
+	</div>
 </div>
