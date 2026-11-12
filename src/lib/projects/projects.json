@@ -1,5 +1,14 @@
 [
   {
+    "title": "SAE Aero",
+    "subtitle": "Autonomous Flight",
+    "description": "Attempting to create our first ever custom VTOL",
+    "preview": "SaeAero",
+    "previewType": "IMG",
+    "src": "/project_photos/saeaero.jpg",
+    "href": "/projects/saeaero"
+  },
+  {
     "title": "Crazyflie",
     "subtitle": "Bitcraze",
     "description": "A palm-sized research quadcopter with a powerful, modular feature set",
@@ -35,14 +44,5 @@
     "previewType": "IMG",
     "src": "",
     "href": "/projects/website"
-  },
-  {
-    "title": "SAE Aero",
-    "subtitle": "Autonomous Flight",
-    "description": "Attempting to create our first ever custom VTOL",
-    "preview": "SaeAero",
-    "previewType": "IMG",
-    "src": "/project_photos/saeaero.jpg",
-    "href": "/projects/saeaero"
   }
 ]
